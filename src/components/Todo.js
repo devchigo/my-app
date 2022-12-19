@@ -11,8 +11,9 @@ function Todo(props) {
     }
 
     function closeModalhandler() {
-        setModalIsOpen(False);
+        setModalIsOpen(false);
     }
+
     return (
         <div className="card">
             <h2>{props.text}</h2>
@@ -21,8 +22,10 @@ function Todo(props) {
                     Delete
                 </button>
 
-                {modalIsOpen && <Modal />}
-                {modalIsOpen && <Backdrop onClick={closeModalhandler} />}
+                {modalIsOpen && (
+                    <Modal onCancel={closeModalhandler} onConfirm={closeModalhandler} />
+                )}
+                {modalIsOpen && <Backdrop onCancel={closeModalhandler} />}
             </div>
         </div>
     );
